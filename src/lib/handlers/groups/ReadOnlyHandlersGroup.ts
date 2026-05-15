@@ -75,6 +75,10 @@ import {
   handleGetReleasedApi,
 } from '../../../handlers/released_api/readonly/handleGetReleasedApi';
 import {
+  TOOL_DEFINITION as GetReleasedApiRich_Tool,
+  handleGetReleasedApiRich,
+} from '../../../handlers/released_api/readonly/handleGetReleasedApiRich';
+import {
   handleReadServiceBinding,
   TOOL_DEFINITION as ReadServiceBinding_Tool,
 } from '../../../handlers/service_binding/readonly/handleReadServiceBinding';
@@ -260,6 +264,10 @@ export class ReadOnlyHandlersGroup extends BaseHandlerGroup {
       {
         toolDefinition: GetReleasedApi_Tool,
         handler: (args: any) => handleGetReleasedApi(this.context, args),
+      },
+      {
+        toolDefinition: GetReleasedApiRich_Tool,
+        handler: (args: any) => handleGetReleasedApiRich(this.context, args),
       },
     ];
   }
