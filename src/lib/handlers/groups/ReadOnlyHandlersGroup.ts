@@ -91,6 +91,22 @@ import {
   TOOL_DEFINITION as ReadStructure_Tool,
 } from '../../../handlers/structure/readonly/handleReadStructure';
 import {
+  TOOL_DEFINITION as GetAtcCheckFailureLogs_Tool,
+  handleGetAtcCheckFailureLogs,
+} from '../../../handlers/system/readonly/handleGetAtcCheckFailureLogs';
+import {
+  TOOL_DEFINITION as GetAtcExecutionLog_Tool,
+  handleGetAtcExecutionLog,
+} from '../../../handlers/system/readonly/handleGetAtcExecutionLog';
+import {
+  TOOL_DEFINITION as GetAtcWorklist_Tool,
+  handleGetAtcWorklist,
+} from '../../../handlers/system/readonly/handleGetAtcWorklist';
+import {
+  handleRunAtc,
+  TOOL_DEFINITION as RunAtc_Tool,
+} from '../../../handlers/system/readonly/handleRunAtc';
+import {
   TOOL_DEFINITION as GetTableContents_Tool,
   handleGetTableContents,
 } from '../../../handlers/table/readonly/handleGetTableContents';
@@ -268,6 +284,23 @@ export class ReadOnlyHandlersGroup extends BaseHandlerGroup {
       {
         toolDefinition: GetReleasedApiRich_Tool,
         handler: (args: any) => handleGetReleasedApiRich(this.context, args),
+      },
+      {
+        toolDefinition: RunAtc_Tool,
+        handler: (args: any) => handleRunAtc(this.context, args),
+      },
+      {
+        toolDefinition: GetAtcWorklist_Tool,
+        handler: (args: any) => handleGetAtcWorklist(this.context, args),
+      },
+      {
+        toolDefinition: GetAtcCheckFailureLogs_Tool,
+        handler: (args: any) =>
+          handleGetAtcCheckFailureLogs(this.context, args),
+      },
+      {
+        toolDefinition: GetAtcExecutionLog_Tool,
+        handler: (args: any) => handleGetAtcExecutionLog(this.context, args),
       },
     ];
   }
